@@ -1,0 +1,35 @@
+// Fonts
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Navbar
+nav {
+
+    .navbar-brand {
+        img {
+            border-right: solid $secondary 2px;
+        }
+
+        .brand-text {
+            font-family: $accentFont;
+            font-size: 1.75rem;
+            color: $primary;
+            vertical-align: -10px;
+        }
+    }
+
+    .nav-link {
+        display: inline;
+        vertical-align: -13px;
+    }
+}
+
+
