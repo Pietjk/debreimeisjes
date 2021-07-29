@@ -10,9 +10,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.header-img {
+    height: 300px;
+    // background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/images/header.jpg");
+}
+
 // Navbar
 nav {
-
     .navbar-brand {
         img {
             border-right: solid $secondary 2px;
@@ -29,7 +36,20 @@ nav {
     .nav-link {
         display: inline;
         vertical-align: -13px;
+        margin-left: 5px;
+    }
+
+    .nav-link:hover {
+        border-bottom: solid $primary 2px;
+        color: $secondary;
+    }
+
+    .nav-link.active {
+        border-bottom: solid $primary 2px;
+        color: $secondary;
     }
 }
 
-
+.container-fluid {
+    max-width: 1920px;
+}
