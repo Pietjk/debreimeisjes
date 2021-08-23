@@ -10875,6 +10875,7 @@ textarea.form-control-lg {
 .header-img {
   height: 300px;
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-image: url("/images/header.jpg");
 }
@@ -10904,4 +10905,23 @@ nav .nav-link.active {
 
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
   max-width: 1920px;
+}
+
+.container .card .card-header {
+  font-weight: 900;
+}
+.container .card .card-body {
+  --max-lines: 4;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+}
+.container .news img {
+  width: 100%;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
