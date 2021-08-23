@@ -16,7 +16,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div id="app">
@@ -32,18 +32,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
+                        @foreach([
+                            'home'=>'Home',
+                            'designs'=>'Ontwerpen',
+                            'news'=>'Nieuws',
+                            'about'=>'Over Mij',
+                            'contact'=>'Contact',
+                        ] as $route=> $label)
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::route()->getName() === 'home') active @endif" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link @if(Request::route()->getName() === $route) active @endif" href="{{ route($route) }}">{{ $label }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link @if(Request::route()->getName() === 'designs') active @endif" href="{{ route('designs') }}">Ontwerpen</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @if(Request::route()->getName() === 'news') active @endif" href="{{ route('news') }}">Nieuws</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @if(Request::route()->getName() === 'about') active @endif" href="{{ route('about') }}">Over Mij</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -55,16 +54,16 @@
     <footer class="footer">
         <div class="row g-0">
             <div class="col-md-6 text-center my-3">
-                <h5>hoi</h5>
-                <p>hoi</p>
+                <h5>Stuur mij een bericht</h5>
+                <p><a href="mailto:debreimeisjes@gmail.com">debreimeisjes@gmail.com</a></p>
             </div>
             <div class="col-md-6 text-center my-3">
                 <h5>Volg me hier!</h5>
-                <p class="text-primary">
-                    <i class="fab fa-blogger"></i> {{-- Blogger --}}
-                    <i class="fab fa-ravelry"></i> {{-- Ravelry --}}
-                    <i class="fab fa-facebook"></i> {{-- Facebook --}}
-                    <i class="fab fa-instagram-square"></i> {{-- Instagram --}}
+                <p class="logo">
+                    <a href="https://www.ravelry.com/designers/akkelien-smink" title="Ravelry"><i class="fab fa-ravelry mx-1"></i></a> {{-- Ravelry --}}
+                    <a href="https://debreimeisjes.blogspot.com/" title="Blogger"><i class="fab fa-blogger mx-1"></i></a> {{-- Blogger --}}
+                    <a href="https://www.facebook.com/debreimeisjes/" title="Facebook"><i class="fab fa-facebook mx-1"></i></a> {{-- Facebook --}}
+                    <a href="https://www.instagram.com/debreimeisjes/" title="Instagram"><i class="fab fa-instagram mx-1"></i></a> {{-- Instagram --}}
                 </p>
             </div>
         </div>

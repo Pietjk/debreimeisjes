@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\PagesController::class, 'home'])->name('home');
 Route::get('/ontwerpen', [App\Http\Controllers\PagesController::class, 'designs'])->name('designs');
 Route::get('/nieuws', [App\Http\Controllers\PagesController::class, 'news'])->name('news');
-Route::get('/overmij', [App\Http\Controllers\PagesController::class, 'about'])->name('about');
+Route::get('/over-mij', [App\Http\Controllers\PagesController::class, 'about'])->name('about');
+Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('contact');
 
 Auth::routes();
 

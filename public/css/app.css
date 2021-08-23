@@ -10925,3 +10925,7 @@ footer {
   height: 100px;
   box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
+footer .logo {
+  color: #B01467;
+  font-size: 20px;
+}
