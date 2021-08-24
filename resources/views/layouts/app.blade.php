@@ -39,9 +39,9 @@
                             'about'=>'Over Mij',
                             'contact'=>'Contact',
                         ] as $route=> $label)
-                        <li class="nav-item">
-                            <a class="nav-link @if(Request::route()->getName() === $route) active @endif" href="{{ route($route) }}">{{ $label }}</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if(Request::route()->getName() === $route) active @endif" href="{{ route($route) }}">{{ $label }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>

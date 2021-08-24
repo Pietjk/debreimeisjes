@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ravelry;
+
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -17,6 +19,7 @@ class PagesController extends Controller
 
     public function designs()
     {
+        dd(Ravelry::getRavelryData());
         return view('main.designs');
     }
 
