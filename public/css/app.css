@@ -10919,6 +10919,13 @@ nav .nav-link.active {
 .container .news img {
   width: 100%;
 }
+.container .products {
+  transition: 0.3s;
+}
+.container .products:hover {
+  cursor: pointer;
+  filter: brightness(0.85);
+}
 
 footer {
   width: 100%;
