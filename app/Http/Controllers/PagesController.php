@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ravelry;
+use App\Services\Ravelry;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class PagesController extends Controller
 {
@@ -17,10 +18,13 @@ class PagesController extends Controller
         return view('main.home');
     }
 
-    public function designs()
+    public function designs(Request $request)
     {
-        dd(Ravelry::getRavelryData());
-        return view('main.designs');
+        $products = Cache::remember('products', 86400, function () {
+            return Ravelry::getRavelryProducts();
+        });
+
+        return view('main.designs', compact('products'));
     }
 
     public function news()
