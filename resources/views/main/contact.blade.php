@@ -1,5 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-    <p>contact</p>
+    <div class="container">
+        <h3 class="text-primary">ontwerpen</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam placerat tellus et nisi tincidunt, feugiat ullamcorper arcu sodales. Etiam facilisis, leo sit amet vulputate accumsan, eros mi luctus est, ac pretium eros orci fringilla est.</p>
+        <hr class="text-primary">
+        <form action="">
+            <div class="mb-3">
+                <label class="form-label">Naam</label>
+                <input type="text" class="form-control" placeholder="Uw naam">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">E-mail addres</label>
+                <input type="email" class="form-control" placeholder="Uw e-mail adres">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Onderwerp</label>
+                <input type="text" class="form-control" placeholder="Het onderwerp">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Uw bericht</label>
+                <textarea class="form-control" rows="3" placeholder="Uw bericht"></textarea>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Verstuur uw bericht</button>
+            </div>
+        </form>
+    </div>
 @endsection
