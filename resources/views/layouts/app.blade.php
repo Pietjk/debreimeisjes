@@ -54,11 +54,11 @@
     <footer class="footer">
         <div class="row g-0">
             <div class="col-md-6 text-center my-3">
-                <h5>Stuur mij een bericht</h5>
+                <h4>Stuur mij een bericht</h4>
                 <p><a href="mailto:debreimeisjes@gmail.com">debreimeisjes@gmail.com</a></p>
             </div>
             <div class="col-md-6 text-center my-3">
-                <h5>Volg me hier!</h5>
+                <h4>Volg me hier!</h4>
                 <p class="logo">
                     <a href="https://www.ravelry.com/designers/akkelien-smink" title="Ravelry"><i class="fab fa-ravelry mx-1"></i></a> {{-- Ravelry --}}
                     <a href="https://debreimeisjes.blogspot.com/" title="Blogger"><i class="fab fa-blogger mx-1"></i></a> {{-- Blogger --}}

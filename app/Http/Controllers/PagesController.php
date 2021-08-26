@@ -15,11 +15,32 @@ class PagesController extends Controller
 // 'about'
     public function home()
     {
-        return view('main.home');
+        Cache::forget('products');
+        $products = Cache::remember('products', 86400, function () {
+            return Ravelry::getRavelryProducts();
+        });
+
+        $favorites = [
+            642413, //7
+            698425, //0
+            634404  //9
+        ];
+        $keys = array_column($products, 'id');
+        $favoriteProducts = [];
+
+        foreach ($favorites as $favorite) {
+            $key = array_search($favorite, $keys);
+            array_push($favoriteProducts, $products[$key]);
+        }
+
+        $products = $favoriteProducts;
+
+        return view('main.home', compact('products'));
     }
 
-    public function designs(Request $request)
+    public function designs()
     {
+        Cache::forget('products');
         $products = Cache::remember('products', 86400, function () {
             return Ravelry::getRavelryProducts();
         });

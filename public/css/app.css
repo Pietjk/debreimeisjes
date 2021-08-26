@@ -10872,6 +10872,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+a {
+  color: #4C484A;
+}
+
 .header-img {
   height: 300px;
   background-size: cover;
@@ -10922,6 +10926,9 @@ nav .nav-link.active {
 .container .products {
   transition: 0.3s;
 }
+.container .products .price {
+  border-left: solid 1px white;
+}
 .container .products:hover {
   cursor: pointer;
   filter: brightness(0.85);
@@ -10932,7 +10939,10 @@ footer {
   height: 100px;
   box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
-footer .logo {
+footer h4, footer .h4 {
+  font-family: "Lobster Two", cursive;
   color: #B01467;
+}
+footer .logo {
   font-size: 20px;
 }

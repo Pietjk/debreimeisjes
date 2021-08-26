@@ -10,6 +10,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+a {
+    color: $secondary;
+}
+
 .header-img {
     height: 300px;
     background-size: cover;
@@ -73,6 +77,10 @@ nav {
     }
     .products {
         transition: 0.3s;
+
+        .price {
+            border-left: solid 1px white;
+        }
     }
 
     .products:hover {
@@ -86,8 +94,12 @@ footer {
     height: 100px;
     box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 
-    .logo {
+    h4 {
+        font-family: $accentFont;
         color: $primary;
+    }
+
+    .logo {
         font-size: 20px;
     }
 }
