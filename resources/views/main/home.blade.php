@@ -10,7 +10,7 @@
 
     <h3 class="text-primary">Mijn spannendste patronen!</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam placerat tellus et nisi tincidunt, feugiat ullamcorper arcu sodales. Etiam facilisis, leo sit amet vulputate accumsan, eros mi luctus est, ac pretium eros orci fringilla est.</p>
-    @include('components._products', ['products' => $products])
+    @each('components._products', $products, 'product')
     <a href="{{ route('designs') }}">Bekijk al mijn patronen hier</a>
     <hr class="text-primary">
 

@@ -1,4 +1,3 @@
-@foreach ($products as $product)
 @php
     // Get title
     $title = $product['title'];
@@ -6,7 +5,7 @@
     $url = Str::slug($title);
 
     // If string contains a "-" add back 2 "--" !!! ONLY WORKS WITH 1 "-" !!!
-    if (strpos($title, '-')) {
+    if (strpos($title, '-') ==! false) {
         $pos = strpos($title, '-');
         $url = substr_replace($url, '--', $pos - 1, 0);
     }
@@ -25,4 +24,3 @@
         </div>
     </div>
 </div>
-@endforeach
