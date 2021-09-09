@@ -11,6 +11,16 @@
     }
 @endphp
 
+@auth
+<div class="card px-2 pt-2 mb-3">
+    <div class="form-check form-switch pb-2">
+        <form action="{{ route('product.feature') }}" method="post">
+            @csrf
+            <input class="form-check-input" type="checkbox" name="product" value="{{ $product['id'] }}" onchange="this.form.submit();">
+            <label class="form-check-label">Aanbevelen</label>
+        </form>
+    </div>
+@endauth
 <div onclick="location.href='https://www.ravelry.com/patterns/library/{{ $url }}';" class="card bg-primary mb-3" title="https://www.ravelry.com/patterns/library/{{ $url }}">
     <div class="row products">
         <div class="col-3 col-sm-2 col-lg-1 align-self-center"><img src="{{ $product['square_thumbnail_url'] }}" alt=""></div>
@@ -24,3 +34,6 @@
         </div>
     </div>
 </div>
+@auth
+</div>
+@endauth

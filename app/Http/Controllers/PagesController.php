@@ -2,36 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\Product;
 use App\Services\Ravelry;
+use App\Services\Text;
 
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-// 'home'
-// 'designs'
-// 'news'
-// 'about'
-
     public function home()
     {
+        $favorites = Product::pluck('ravelry_id');
 
-        $favorites = [
-            642413, //7
-            698425, //0
-            634404  //9
-        ];
+        $products = Ravelry::getProducts($cached = true)->whereIn('id', $favorites);
 
-        $products = Ravelry::getProducts($cached = true)->whereIn('id', $favorites)->random(3);
+        $posts = Post::all();
+        $welcome = $posts->where('locator', '=', 'hWelcome')->first();
+        $welcomeDescription = Text::createWhitespace($welcome->description);
 
-        return view('main.home', compact('products'));
+        $pattern = $posts->where('locator', '=', 'hPattern')->first();
+        $patternDescription = Text::createWhitespace($pattern->description);
+
+        $news = $posts->where('locator', '=', 'hNews')->first();
+
+        return view('main.home', compact('products', 'welcome', 'welcomeDescription', 'pattern', 'patternDescription', 'news'));
     }
 
     public function designs()
     {
         $products = Ravelry::getProducts($cached = true);
 
-        return view('main.designs', compact('products'));
+        $text = Post::where('locator', '=', 'mPattern')->first();
+        $description = Text::createWhitespace($text->description);
+
+        return view('main.designs', compact('text', 'products', 'description'));
     }
 
     public function news()
@@ -46,6 +51,9 @@ class PagesController extends Controller
 
     public function contact()
     {
-        return view('main.contact');
+        $text = Post::where('locator', '=', 'mContact')->first();
+        $description = Text::createWhitespace($text->description);
+
+        return view('main.contact', compact('text', 'description'));
     }
 }

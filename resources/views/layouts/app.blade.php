@@ -43,6 +43,17 @@
                                 <a class="nav-link @if(Route::currentRouteName() === $route) active @endif" href="{{ route($route) }}">{{ $label }}</a>
                             </li>
                         @endforeach
+                        @auth
+                            <li class="nav-item">
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();" class="nav-link">
+                                    Log uit
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </div>

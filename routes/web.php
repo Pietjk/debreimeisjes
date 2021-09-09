@@ -19,6 +19,10 @@ Route::get('/nieuws', [App\Http\Controllers\PagesController::class, 'news'])->na
 Route::get('/over-mij', [App\Http\Controllers\PagesController::class, 'about'])->name('about');
 Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('contact');
 
-Auth::routes();
+Route::middleware('auth')->group(function () {
+    Route::resource('post', App\Http\Controllers\PostController::class)->only('edit', 'update');
+    Route::post('/product', [App\Http\Controllers\ProductController::class, 'feature'])->name('product.feature');
+});
+Auth::routes(['register' => false]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
