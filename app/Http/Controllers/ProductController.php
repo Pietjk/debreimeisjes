@@ -27,7 +27,6 @@ class ProductController extends Controller
         if (count($product->get()) > 0)
         {
             $product->delete();
-            return back();
         }
         // If id doesn't exist create it
         else
@@ -35,7 +34,7 @@ class ProductController extends Controller
             Product::create([
                 'ravelry_id' => $validated['product'],
             ]);
-            return back();
         }
+        return back();
     }
 }
