@@ -19,10 +19,10 @@ class PagesController extends Controller
 
         $posts = Post::all();
         $welcome = $posts->where('locator', '=', 'hWelcome')->first();
-        $welcomeDescription = Text::createWhitespace($welcome->description);
+        $welcomeDescription = Text::nl2p($welcome->description);
 
         $pattern = $posts->where('locator', '=', 'hPattern')->first();
-        $patternDescription = Text::createWhitespace($pattern->description);
+        $patternDescription = Text::nl2p($pattern->description);
 
         $news = $posts->where('locator', '=', 'hNews')->first();
 
@@ -34,7 +34,7 @@ class PagesController extends Controller
         $products = Ravelry::getProducts($cached = true);
 
         $text = Post::where('locator', '=', 'mPattern')->first();
-        $description = Text::createWhitespace($text->description);
+        $description = Text::nl2p($text->description);
 
         return view('main.designs', compact('text', 'products', 'description'));
     }
@@ -52,7 +52,7 @@ class PagesController extends Controller
     public function contact()
     {
         $text = Post::where('locator', '=', 'mContact')->first();
-        $description = Text::createWhitespace($text->description);
+        $description = Text::nl2p($text->description);
 
         return view('main.contact', compact('text', 'description'));
     }

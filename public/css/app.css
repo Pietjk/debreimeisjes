@@ -10908,9 +10908,12 @@ nav .nav-link.active {
 }
 
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
-  max-width: 1920px;
+  max-width: 1350px;
 }
 
+.container {
+  max-width: 1200px;
+}
 .container .card .card-header {
   font-weight: 900;
 }

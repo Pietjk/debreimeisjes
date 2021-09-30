@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h3 class="text-primary">{{ $welcome->title }}@auth <a href="#"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
+    <h3 class="text-primary">{{ $welcome->title }}@auth <a href="{{ route('post.edit', $welcome) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
     {!! $welcomeDescription !!}
     <h5 class="text-primary">Hier is mijn blog:</h5>
     <a href="https://debreimeisjes.blogspot.nl">debreimeisjes.blogspot.nl</a>
