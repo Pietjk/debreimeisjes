@@ -2,19 +2,20 @@
 
 @section('content')
 <div class="container">
+    @include('components._messages')
     <h3 class="text-primary">{{ $welcome->title }}@auth <a href="{{ route('post.edit', $welcome) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
     {!! $welcomeDescription !!}
     <h5 class="text-primary">Hier is mijn blog:</h5>
     <a href="https://debreimeisjes.blogspot.nl">debreimeisjes.blogspot.nl</a>
     <hr class="text-primary">
 
-    <h3 class="text-primary">{{ $pattern->title }}@auth<a href="#"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
+    <h3 class="text-primary">{{ $pattern->title }}@auth<a href="{{ route('post.edit', $pattern) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
     {!! $patternDescription !!}
     @each('components._products', $products, 'product')
     <a href="{{ route('designs') }}">Bekijk al mijn patronen hier</a>
     <hr class="text-primary">
 
-    <h3 class="text-primary">{{ $news->title }}@auth <a href="#"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
+    <h3 class="text-primary">{{ $news->title }}@auth <a href="{{ route('post.edit', $news) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
     <div onclick="location.href='{{ route('news') }}'" class="card bg-primary mb-3" title="{{ route('news') }}">
         <div class="row products">
             <div class="col-3 col-sm-2 col-lg-1 align-self-center"><img src="{{ asset('/images/placeholder.jpg') }}" alt="" height="75px" width="75px"></div>
