@@ -10,11 +10,11 @@
             @csrf
             <div class="mb-3">
                 <label class="form-label">Titel</label>
-                <input name="title" type="text" class="form-control" placeholder="Titel" value="{{ $post->title }}">
+                <input name="title" type="text" class="form-control" placeholder="Titel" value="{{ old('title') ?? $post->title }}">
             </div>
             <div class="mb-3">
                 <label class="form-label">Tekst</label>
-                <textarea name="description" class="form-control" rows="5" placeholder="Verhaal">{{ $post->description }}</textarea>
+                <textarea name="description" class="form-control" rows="5" placeholder="Verhaal">{{ old('description') ?? $post->description }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Pas aan</button>
         </form>

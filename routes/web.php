@@ -21,6 +21,7 @@ Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])
 
 Route::middleware('auth')->group(function () {
     Route::resource('post', App\Http\Controllers\PostController::class)->only('edit', 'update');
+    Route::resource('news', App\Http\Controllers\NewsController::class)->except('index', 'show');
     Route::post('/product', [App\Http\Controllers\ProductController::class, 'feature'])->name('product.feature');
 });
 Auth::routes(['register' => false]);

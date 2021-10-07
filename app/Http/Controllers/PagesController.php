@@ -26,22 +26,26 @@ class PagesController extends Controller
 
         $news = $posts->where('locator', '=', 'hNews')->first();
 
-        return view('main.home', compact('products', 'welcome', 'welcomeDescription', 'pattern', 'patternDescription', 'news'));
+        return view('main.home', compact('products', 'favorites', 'welcome', 'welcomeDescription', 'pattern', 'patternDescription', 'news'));
     }
 
     public function designs()
     {
+        $favorites = Product::pluck('ravelry_id');
         $products = Ravelry::getProducts($cached = true);
 
         $text = Post::where('locator', '=', 'mPattern')->first();
         $description = Text::nl2p($text->description);
 
-        return view('main.designs', compact('text', 'products', 'description'));
+        return view('main.designs', compact('text', 'description', 'products', 'favorites'));
     }
 
     public function news()
     {
-        return view('main.news');
+        $text = Post::where('locator', '=', 'mNews')->first();
+        $description = Text::nl2p($text->description);
+
+        return view('main.news', compact('text', 'description'));
     }
 
     public function about()

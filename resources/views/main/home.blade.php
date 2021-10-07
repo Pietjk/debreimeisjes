@@ -11,7 +11,9 @@
 
     <h3 class="text-primary">{{ $pattern->title }}@auth<a href="{{ route('post.edit', $pattern) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
     {!! $patternDescription !!}
-    @each('components._products', $products, 'product')
+    @foreach ($products as $product)
+        @include('components._products', ['product' => $product, 'favorites' => $favorites])
+    @endforeach
     <a href="{{ route('designs') }}">Bekijk al mijn patronen hier</a>
     <hr class="text-primary">
 

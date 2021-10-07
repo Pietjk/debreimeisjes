@@ -16,8 +16,9 @@
     <div class="form-check form-switch pb-2">
         <form action="{{ route('product.feature') }}" method="post">
             @csrf
-            <input class="form-check-input" type="checkbox" name="product" value="{{ $product['id'] }}" onchange="this.form.submit();">
-            <label class="form-check-label">Aanbevelen</label>
+            <input type="hidden" name="product" value="{{ $product['id'] }}">
+            <input class="form-check-input" type="checkbox" onchange="this.form.submit();" @if ($favorites->contains($product['id'])) checked @endif>
+            <label class="form-check-label">@if ($favorites->contains($product['id'])) aanbevolen @else aanbevelen @endif</label>
         </form>
     </div>
 @endauth
