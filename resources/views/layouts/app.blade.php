@@ -35,7 +35,7 @@
                         @foreach([
                             'home'=>'Home',
                             'designs'=>'Ontwerpen',
-                            'news'=>'Nieuws',
+                            'nieuws'=>'Nieuws',
                             'about'=>'Over Mij',
                             'contact'=>'Contact',
                         ] as $route=> $label)

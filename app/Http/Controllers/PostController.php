@@ -21,7 +21,7 @@ class PostController extends Controller
 
         $post->update($validated);
 
-        session()->flash('success', 'ik ben een coole jonge');
+        session()->flash('success', 'Post aangemaakt');
         return redirect('/');
     }
 }

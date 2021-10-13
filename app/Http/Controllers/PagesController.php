@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Product;
+use App\Models\News;
 use App\Services\Ravelry;
 use App\Services\Text;
 
@@ -44,8 +45,9 @@ class PagesController extends Controller
     {
         $text = Post::where('locator', '=', 'mNews')->first();
         $description = Text::nl2p($text->description);
+        $newsposts =  News::all()->sortBy('created_at');
 
-        return view('main.news', compact('text', 'description'));
+        return view('main.news', compact('text', 'description', 'newsposts'));
     }
 
     public function about()

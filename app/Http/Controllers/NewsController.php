@@ -35,7 +35,26 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'min:3'],
+            'text' => ['required', 'string', 'min:3'],
+            'blog_link' => ['required', 'url'],
+            'news_link' => ['nullable', 'url'],
+            'image' => ['required', 'image', 'max:200'],
+        ]);
+
+        unset($validated['image']);
+
+        $path = $request->file('image')->store(
+            'images',
+            'public'
+        );
+        $validated['image_path'] = $path;
+
+        News::create($validated);
+
+        session()->flash('success', 'Nieuws aangemakt');
+        return redirect('nieuws');
     }
 
     /**
