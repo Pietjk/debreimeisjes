@@ -1,18 +1,25 @@
 <div class="col-md-6 d-flex">
     <div class="card text-white bg-primary mb-4">
         <div class="card-header">
-            <h3>{{ $news->title }}</h3>
+            <div class="row">
+                <div class="col-10">
+                    <h3>{{ $news->title }}</h3>
+                </div>
+                @auth
+                    <div class="col-2 text-end fs-4 ">
+                        <a href="{{ route('news.edit', $news) }}"><i class="far fa-edit text-white"></i></a>
+                        <a href="{{ route('news.edit', $news) }}"><i class="fas fa-trash text-white"></i></a>
+                    </div>
+                @endauth
+            </div>
         </div>
         <div class="card-body">
             <div class="row ">
                 <div class="clearfix">
                     <div class="text-center">
                         <img src="{{ asset('storage/'.$news->image_path) }}" class="col-md-6 float-md-start mb-3 me-md-3 mw-100 rounded" alt="...">
-
                     </div>
-                    <p>
-                        {!! App\Services\Text::nl2p($news->text) !!}
-                    </p>
+                    {!! App\Services\Text::nl2p($news->text) !!}
                 </div>
             </div>
         </div>
