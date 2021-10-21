@@ -27,6 +27,7 @@ class ProductController extends Controller
         if (count($product->get()) > 0)
         {
             $product->delete();
+            session()->flash('success', 'Het product wordt nu niet meer aanbevolen');
         }
         // If id doesn't exist create it
         else
@@ -34,6 +35,7 @@ class ProductController extends Controller
             Product::create([
                 'ravelry_id' => $validated['product'],
             ]);
+            session()->flash('success', 'Het product wordt nu aanbevolen');
         }
         return back();
     }
