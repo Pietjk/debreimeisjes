@@ -17,14 +17,14 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Link naar de blog</label>
-                <input name="blog_link" type="text" class="form-control" placeholder="Titel" value="{{ old('blog_link') }}">
+                <input name="blog_link" type="text" class="form-control" placeholder="Link naar de blog" value="{{ old('blog_link') }}">
             </div>
             <div class="mb-3">
                 <label class="form-label">Link naar de nieuws site (niet verplicht)</label>
-                <input name="news_link" type="text" class="form-control" placeholder="Titel" value="{{ old('news_link') }}">
+                <input name="news_link" type="text" class="form-control" placeholder="Link naar het nieuws" value="{{ old('news_link') }}">
             </div>
             <div class="mb-3">
-                <label class="form-label">Link naar de blog</label>
+                <label class="form-label">Afbeelding</label>
                 <input name="image" type="file" class="form-control file" placeholder="Titel">
             </div>
             <button type="submit" class="btn btn-primary">Maak aan</button>

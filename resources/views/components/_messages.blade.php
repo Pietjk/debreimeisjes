@@ -8,3 +8,7 @@
 @if ($bag === 'default' && session()->has('warning'))
     @include('components._message', ['icon' => 'exclamation-circle', 'message' => session()->get('warning')])
 @endif
+
+@if ($bag === 'default' && session()->has('success'))
+    @include('components._message', ['type' => 'success', 'icon' => 'info-circle', 'message' => session()->get('success')])
+@endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -53,7 +54,7 @@ class NewsController extends Controller
 
         News::create($validated);
 
-        session()->flash('success', 'Nieuws aangemakt');
+        session()->flash('success', 'Nieuws aangemaakt');
         return redirect('nieuws');
     }
 
@@ -76,7 +77,7 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        return view('news.edit', compact('news'));
     }
 
     /**
@@ -88,7 +89,31 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'min:3'],
+            'text' => ['required', 'string', 'min:3'],
+            'blog_link' => ['required', 'url'],
+            'news_link' => ['nullable', 'url'],
+            'image' => ['nullable', 'image', 'max:200'],
+        ]);
+
+        unset($validated['image']);
+
+        if ($request->file('image') !== null)
+        {
+            Storage::disk('public')->delete($news->image_path);
+
+            $path = $request->file('image')->store(
+                'images',
+                'public'
+            );
+            $validated['image_path'] = $path;
+        }
+
+        $news->update($validated);
+
+        session()->flash('success', 'Nieuws aangepast');
+        return redirect('nieuws');
     }
 
     /**
@@ -99,6 +124,9 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        Storage::disk('public')->delete($news->image_path);
+        $news->delete();
+        session()->flash('success', 'Nieuws verwijderd');
+        return back();
     }
 }

@@ -6,9 +6,14 @@
                     <h3>{{ $news->title }}</h3>
                 </div>
                 @auth
-                    <div class="col-2 text-end fs-4 ">
+                    <div class="col-2 text-end fs-5 ">
                         <a href="{{ route('news.edit', $news) }}"><i class="far fa-edit text-white"></i></a>
-                        <a href="{{ route('news.edit', $news) }}"><i class="fas fa-trash text-white"></i></a>
+                        |
+                        <a href="#" onclick="document.getElementById('destroyerOfNews{{ $news->id }}').submit()"><i class="fas fa-trash text-white"></i></a>
+                        <form action="{{ route('news.destroy', $news) }}" method="post" style="display: none;" id="destroyerOfNews{{ $news->id }}">
+                            @csrf
+                            @method('DELETE')
+                        </form>
                     </div>
                 @endauth
             </div>
@@ -24,7 +29,7 @@
             </div>
         </div>
         <div class="card-footer text-center">
-            <p class="fs-4">
+            <p class="fs-5">
                 <a href="{{ $news->blog_link }}" class="text-white">Blog</a>
                 @if ($news->news_link !== null)
                     <span> | </span>
