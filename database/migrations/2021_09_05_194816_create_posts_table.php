@@ -40,7 +40,7 @@ class CreatePostsTable extends Migration
             ],
             [
                 'title' => 'Het laatste nieuws',
-                'description' => 'Aliquam quis varius tortor. Mauris laoreet massa sollicitudin mauris euismod, ut cursus ante posuere. Etiam velit arcu, eleifend eget faucibus ac, scelerisque eu purus. Morbi ut nisi quis sapien fermentum ultrices. In facilisis urna turpis, eu aliquet risus condimentum in. Vivamus non nisi ultrices, tempus erat at, imperdiet felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+                'description' => '...',
                 'locator' => 'hNews',
                 'created_at' => $dt,
                 'updated_at' => $dt,

@@ -23,7 +23,7 @@
         <div class="header-img"></div>
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand" href="{{ route('main.home') }}">
                     <img src="{{ asset('/images/logoZT.png') }}" alt="" height="75" class="d-inline-block pe-3 me-3">
                     <span class="brand-text">De Breimeisjes</span>
                 </a>
@@ -33,11 +33,11 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
                         @foreach([
-                            'home'=>'Home',
-                            'designs'=>'Ontwerpen',
-                            'nieuws'=>'Nieuws',
-                            'about'=>'Over Mij',
-                            'contact'=>'Contact',
+                            'main.home'=>'Home',
+                            'main.designs'=>'Ontwerpen',
+                            'main.news'=>'Nieuws',
+                            'main.about'=>'Over Mij',
+                            'main.contact'=>'Contact',
                         ] as $route=> $label)
                             <li class="nav-item">
                                 <a class="nav-link @if(Route::currentRouteName() === $route) active @endif" href="{{ route($route) }}">{{ $label }}</a>

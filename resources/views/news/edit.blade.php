@@ -34,11 +34,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label w-100">Huidige afbeelding</label>
-                        <img src="{{ asset('storage/'.$news->image_path) }}" alt="" class="rounded mw-100" width="300px">
+                        <img src="{{ asset($news->image_path) }}" alt="" class="rounded mw-100" width="300px">
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Maak aan</button>
+            <button type="submit" class="btn btn-primary">Pas aan</button>
         </form>
     </div>
 @endsection

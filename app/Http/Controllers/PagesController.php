@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\News;
+use App\Models\About;
 use App\Services\Ravelry;
 use App\Services\Text;
 
@@ -52,7 +53,8 @@ class PagesController extends Controller
 
     public function about()
     {
-        return view('main.about');
+        $about = About::first();
+        return view('main.about', compact('about'));
     }
 
     public function contact()

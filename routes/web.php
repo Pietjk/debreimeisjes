@@ -13,16 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\PagesController::class, 'home'])->name('home');
-Route::get('/ontwerpen', [App\Http\Controllers\PagesController::class, 'designs'])->name('designs');
-Route::get('/nieuws', [App\Http\Controllers\PagesController::class, 'news'])->name('nieuws');
-Route::get('/over-mij', [App\Http\Controllers\PagesController::class, 'about'])->name('about');
-Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('contact');
+Route::get('/', [App\Http\Controllers\PagesController::class, 'home'])->name('main.home');
+Route::get('/ontwerpen', [App\Http\Controllers\PagesController::class, 'designs'])->name('main.designs');
+Route::get('/nieuws', [App\Http\Controllers\PagesController::class, 'news'])->name('main.news');
+Route::get('/over-mij', [App\Http\Controllers\PagesController::class, 'about'])->name('main.about');
+Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('main.contact');
 
 Route::middleware('auth')->group(function () {
     Route::resource('post', App\Http\Controllers\PostController::class)->only('edit', 'update');
     Route::resource('news', App\Http\Controllers\NewsController::class)->except('index', 'show');
     Route::post('/product', [App\Http\Controllers\ProductController::class, 'feature'])->name('product.feature');
+    Route::resource('about', App\Http\Controllers\AboutController::class)->only('edit', 'update');
 });
 Auth::routes(['register' => false]);
 

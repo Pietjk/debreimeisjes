@@ -10876,6 +10876,10 @@ a {
   color: #4C484A;
 }
 
+p {
+  font-size: 0.95rem;
+}
+
 .header-img {
   height: 300px;
   background-size: cover;
