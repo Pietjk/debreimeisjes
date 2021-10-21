@@ -50,12 +50,12 @@ class NewsController extends Controller
             'images',
             'public'
         );
-        $validated['image_path'] = $path;
+        $validated['image_path'] = 'storage/'.$path;
 
         News::create($validated);
 
         session()->flash('success', 'Nieuws aangemaakt');
-        return redirect('nieuws');
+        return redirect(route('main.news'));
     }
 
     /**
@@ -101,19 +101,20 @@ class NewsController extends Controller
 
         if ($request->file('image') !== null)
         {
-            Storage::disk('public')->delete($news->image_path);
+            $image = str_replace('storage/', '', $news->image_path);
+            Storage::disk('public')->delete($image);
 
             $path = $request->file('image')->store(
                 'images',
                 'public'
             );
-            $validated['image_path'] = $path;
+            $validated['image_path'] = 'storage/'.$path;
         }
 
         $news->update($validated);
 
         session()->flash('success', 'Nieuws aangepast');
-        return redirect('nieuws');
+        return redirect(route('main.news'));
     }
 
     /**
@@ -124,7 +125,8 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        Storage::disk('public')->delete($news->image_path);
+        $image = str_replace('storage/', '', $news->image_path);
+        Storage::disk('public')->delete($image);
         $news->delete();
         session()->flash('success', 'Nieuws verwijderd');
         return back();
