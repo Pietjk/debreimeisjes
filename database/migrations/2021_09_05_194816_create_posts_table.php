@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('locator');
             $table->timestamps();
         });
@@ -40,7 +40,7 @@ class CreatePostsTable extends Migration
             ],
             [
                 'title' => 'Het laatste nieuws',
-                'description' => '...',
+                'description' => null,
                 'locator' => 'hNews',
                 'created_at' => $dt,
                 'updated_at' => $dt,

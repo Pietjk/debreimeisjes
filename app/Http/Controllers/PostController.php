@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -16,7 +17,7 @@ class PostController extends Controller
     {
         $validated = $request->validate([
             'title' => ['required', 'min:3', 'max:255', 'string'],
-            'description' => ['required', 'string']
+            'description' => ['string', 'nullable', Rule::requiredIf($post->locator !== 'hNews')]
         ]);
 
         $post->update($validated);
