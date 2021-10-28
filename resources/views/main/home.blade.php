@@ -4,13 +4,13 @@
 <div class="container">
     @include('components._messages')
     <h3 class="text-primary">{{ $welcome->title }}@auth <a href="{{ route('post.edit', $welcome) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
-    {!! $welcomeDescription !!}
+    {!! App\Services\Text::nl2p($welcome->description) !!}
     <h5 class="text-primary">Hier is mijn blog:</h5>
     <a href="https://debreimeisjes.blogspot.nl">debreimeisjes.blogspot.nl</a>
     <hr class="text-primary">
 
     <h3 class="text-primary">{{ $pattern->title }}@auth<a href="{{ route('post.edit', $pattern) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
-    {!! $patternDescription !!}
+    {!! App\Services\Text::nl2p($pattern->description) !!}
     @foreach ($products as $product)
         @include('components._products', ['product' => $product, 'favorites' => $favorites])
     @endforeach

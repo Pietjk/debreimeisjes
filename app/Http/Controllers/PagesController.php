@@ -21,14 +21,12 @@ class PagesController extends Controller
 
         $posts = Post::all();
         $welcome = $posts->where('locator', '=', 'hWelcome')->first();
-        $welcomeDescription = Text::nl2p($welcome->description);
 
         $pattern = $posts->where('locator', '=', 'hPattern')->first();
-        $patternDescription = Text::nl2p($pattern->description);
 
         $news = $posts->where('locator', '=', 'hNews')->first();
 
-        return view('main.home', compact('products', 'favorites', 'welcome', 'welcomeDescription', 'pattern', 'patternDescription', 'news'));
+        return view('main.home', compact('products', 'favorites', 'welcome', 'pattern', 'news'));
     }
 
     public function designs()
@@ -36,19 +34,17 @@ class PagesController extends Controller
         $favorites = Product::pluck('ravelry_id');
         $products = Ravelry::getProducts($cached = true);
 
-        $text = Post::where('locator', '=', 'mPattern')->first();
-        $description = Text::nl2p($text->description);
+        $post = Post::where('locator', '=', 'mPattern')->first();
 
-        return view('main.designs', compact('text', 'description', 'products', 'favorites'));
+        return view('main.designs', compact('post', 'products', 'favorites'));
     }
 
     public function news()
     {
-        $text = Post::where('locator', '=', 'mNews')->first();
-        $description = Text::nl2p($text->description);
+        $post = Post::where('locator', '=', 'mNews')->first();
         $newsposts =  News::all()->sortBy('created_at');
 
-        return view('main.news', compact('text', 'description', 'newsposts'));
+        return view('main.news', compact('post', 'newsposts'));
     }
 
     public function about()
@@ -59,9 +55,8 @@ class PagesController extends Controller
 
     public function contact()
     {
-        $text = Post::where('locator', '=', 'mContact')->first();
-        $description = Text::nl2p($text->description);
+        $post = Post::where('locator', '=', 'mContact')->first();
 
-        return view('main.contact', compact('text', 'description'));
+        return view('main.contact', compact('post'));
     }
 }
