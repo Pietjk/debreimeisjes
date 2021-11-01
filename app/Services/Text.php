@@ -9,5 +9,3 @@ class Text
         return '<p>'.preg_replace('/[\r\n]+/', '</p><p>', $text) . '</p>';
     }
 }
-
-?>
