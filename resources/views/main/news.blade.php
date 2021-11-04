@@ -12,7 +12,11 @@
         <a href="{{ route('news.create') }}" class="btn btn-secondary btn-lg mb-3"><i class="fas fa-plus"></i> Maak een nieuwsbericht</a>
     @endauth
     <div class="row">
-        @each('components._news', $newsposts, 'news')
+        @if (count($newsposts) > 0)
+            @each('components._news', $newsposts, 'news', )
+        @else
+            @include('components._message', ['type' => 'info', 'message' => 'Er is nog geen nieuws', 'icon' => 'info-circle'])
+        @endif
     </div>
 </div>
 @endsection
