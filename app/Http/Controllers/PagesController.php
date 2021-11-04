@@ -19,6 +19,8 @@ class PagesController extends Controller
 
         $products = Ravelry::getProducts($cached = true)->whereIn('id', $favorites);
 
+        $latestNews =  News::latest()->first();
+
         $posts = Post::all();
         $welcome = $posts->where('locator', '=', 'hWelcome')->first();
 
@@ -26,7 +28,7 @@ class PagesController extends Controller
 
         $news = $posts->where('locator', '=', 'hNews')->first();
 
-        return view('main.home', compact('products', 'favorites', 'welcome', 'pattern', 'news'));
+        return view('main.home', compact('products', 'favorites', 'latestNews', 'welcome', 'pattern', 'news'));
     }
 
     public function designs()
@@ -42,7 +44,7 @@ class PagesController extends Controller
     public function news()
     {
         $post = Post::where('locator', '=', 'mNews')->first();
-        $newsposts =  News::all()->sortBy('created_at');
+        $newsposts =  News::all()->sortByDesc('created_at');
 
         return view('main.news', compact('post', 'newsposts'));
     }
