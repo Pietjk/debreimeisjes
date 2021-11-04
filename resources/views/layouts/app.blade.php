@@ -73,7 +73,7 @@
                 <p class="logo">
                     <a href="https://www.ravelry.com/designers/akkelien-smink" title="Ravelry"><i class="fab fa-ravelry mx-1"></i></a> {{-- Ravelry --}}
                     <a href="https://debreimeisjes.blogspot.com/" title="Blogger"><i class="fab fa-blogger mx-1"></i></a> {{-- Blogger --}}
-                    <a href="https://breiclub.nl/author/akkelien/" title="Breiclub"><i class="icon-breiclub mx-1"></i></a> {{-- Breiclub --}}
+                    <a href="https://breiclub.nl/author/akkelien/" title="Breiclub"><i class="icon-breiclub"></i></a> {{-- Breiclub --}}
                     <a href="https://www.facebook.com/debreimeisjes/" title="Facebook"><i class="fab fa-facebook mx-1"></i></a> {{-- Facebook --}}
                     <a href="https://www.instagram.com/debreimeisjes/" title="Instagram"><i class="fab fa-instagram mx-1"></i></a> {{-- Instagram --}}
                 </p>
