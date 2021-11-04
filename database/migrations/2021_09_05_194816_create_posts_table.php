@@ -47,15 +47,7 @@ class CreatePostsTable extends Migration
             ],
             [
                 'title' => 'Ontwerpen',
-                'description' => 'De oude vioolbouwer Aurélien Ricard heeft zijn leven gewijd aan een droom: het bijeen brengen van de beste violist en de meest bijzondere viool op aarde. Alleen het beste is goed genoeg om het mooiste muziekstuk dat uit het menselijk brein is voortgekomen te spelen: de Chaconne van Bach. Ricard heeft echter geen rekening gehouden met de wispelturigheid van de jonge violist, waardoor hun relatie zich kenmerkt door meningsverschillen en ruzies. Uiteindelijk zal de strijd worden beslecht in een waanzinnige apotheose, in een van de belangrijkste plaatsen uit het leven van Johann Sebastian Bach.
-
-                Lezers over Cantor: Het boek laat mij niet meer los. Cantor verdient veel lezers. Bijzonder boeiend en sfeervol.
-
-                Specificaties:
-                Aantal bladzijden: 380
-                ISB-nummer: 978-90-825221-0-5
-                Druk: Pumbo.nl
-                Publicatie: Vannier, 2016',
+                'description' => 'Aliquam quis varius tortor. Mauris laoreet massa sollicitudin mauris euismod, ut cursus ante posuere. Etiam velit arcu, eleifend eget faucibus ac, scelerisque eu purus. Morbi ut nisi quis sapien fermentum ultrices. In facilisis urna turpis, eu aliquet risus condimentum in. Vivamus non nisi ultrices, tempus erat at, imperdiet felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
                 'locator' => 'mPattern',
                 'created_at' => $dt,
                 'updated_at' => $dt,
