@@ -29,13 +29,14 @@
             </div>
         </div>
         <div class="card-footer text-center">
-            <p class="fs-5">
+            <p class="fs-5 mb-0">
                 <a href="{{ $news->blog_link }}" class="text-white">Blog</a>
                 @if ($news->news_link !== null)
                     <span> | </span>
                     <a href="{{ $news->news_link }}" class="text-white">nieuws site</a>
-                @endif
-            </p>
+                    @endif
+                </p>
+                <p class="text-white mb-1">Geupload op: {{ date('d-m-Y', strtotime($news->created_at)) }}</p>
         </div>
     </div>
 </div>
