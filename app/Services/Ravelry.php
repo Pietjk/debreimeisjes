@@ -23,8 +23,16 @@ class Ravelry
             $products = Cache::remember('products', 86400, function () {
                             return self::getProducts($cached = false)->toArray();
                         });
+
         } else {
             $products = self::apiGet('stores/82998/products.json')['products'];
+
+            array_walk(
+                $products,
+                function(&$product) {
+                    $product['square_thumbnail_url'] = str_replace('http://images4.ravelry', 'https://images4-f.ravelrycache', $product['square_thumbnail_url']);
+                }
+            );
         }
         return collect($products);
     }
