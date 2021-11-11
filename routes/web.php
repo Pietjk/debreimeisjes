@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactFormSubmissionController;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,7 @@ Route::get('/ontwerpen', [App\Http\Controllers\PagesController::class, 'designs'
 Route::get('/nieuws', [App\Http\Controllers\PagesController::class, 'news'])->name('main.news');
 Route::get('/over-mij', [App\Http\Controllers\PagesController::class, 'about'])->name('main.about');
 Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('main.contact');
-Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('send');
+Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('send')->middleware(ProtectAgainstSpam::class);
 
 Route::middleware('auth')->group(function () {
     Route::resource('post', App\Http\Controllers\PostController::class)->only('edit', 'update');

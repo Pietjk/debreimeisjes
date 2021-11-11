@@ -8,6 +8,7 @@
         @include('components._messages')
         <form action="{{ route('send') }}" method="post">
             @csrf
+            @honeypot
             <div class="mb-3">
                 <label class="form-label">Naam</label>
                 <input type="text" name="name" class="form-control" placeholder="Uw naam" value="{{ old('name') }}">
