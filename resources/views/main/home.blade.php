@@ -20,12 +20,11 @@
     <h3 class="text-primary">{{ $news->title }}@auth <a href="{{ route('post.edit', $news) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
     {{-- @dd($latestNews) --}}
     @if ($latestNews !== null)
-        <div onclick="location.href='{{ route('main.news') }}'" class="card bg-primary mb-3" title="{{ route('main.news') }}">
+        <a href="{{ route('main.news') }}" class="card bg-primary text-decoration-none zoom mb-3">
             <div class="row products">
                 <div class="col-3 col-sm-2 col-lg-1 align-self-center"><img src="{{ asset($latestNews->image_path) }}" alt="" height="75px" width="75px"></div>
                 <div class="col-9 col-sm-10 col-lg-11 text-white align-self-center"><p>{{ $latestNews->title }}</p></div>
             </div>
-        </div>
         </a>
         <a href="{{ route('main.news') }}">Bekijk al het nieuws hier</a>
     @else

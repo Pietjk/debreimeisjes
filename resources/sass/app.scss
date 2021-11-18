@@ -140,17 +140,24 @@ nav {
         }
     }
     .products {
-        transition: 0.3s;
+        // transition: 0.3s;
 
         .price {
             border-left: solid 1px white;
         }
     }
 
-    .products:hover {
+    .zoom {
+        transition: 0.2s;
         cursor: pointer;
-        filter: brightness(0.85);
     }
+    .zoom:hover {
+
+        filter: brightness(0.90);
+        transform: scale(1.01);
+    }
+    // .products {
+    // }
 }
 
 footer {
