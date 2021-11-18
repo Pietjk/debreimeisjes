@@ -24,7 +24,7 @@
                     <div class="text-center">
                         <img src="{{ asset($news->image_path) }}" class="col-md-6 float-md-start mb-3 me-md-3 mw-100 rounded" alt="...">
                     </div>
-                    {!! App\Services\Text::nl2p($news->text) !!}
+                    {!! App\Services\Text::nl2p(e($news->text)) !!}
                 </div>
             </div>
         </div>
