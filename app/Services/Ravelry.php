@@ -23,10 +23,11 @@ class Ravelry
             $products = Cache::remember('products', 86400, function () {
                             return self::getProducts($cached = false)->toArray();
                         });
-
         } else {
-            $products = self::apiGet('stores/82998/products.json')['products'];
-
+            $allProducts = collect(self::apiGet('stores/82998/products.json')['products']);
+            $products = $allProducts->reject(function($allProducts, $key) {
+                return is_null($allProducts['square_thumbnail_url']);
+            })->toArray();
             array_walk(
                 $products,
                 function(&$product) {
