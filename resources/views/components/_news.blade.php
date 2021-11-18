@@ -24,7 +24,7 @@
                     <div class="text-center">
                         <img src="{{ asset($news->image_path) }}" class="col-md-6 float-md-start mb-3 me-md-3 mw-100 rounded" alt="...">
                     </div>
-                    {!! App\Services\Text::nl2p($news->text) !!}
+                    {!! App\Services\Text::nl2p(e($news->text)) !!}
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                 <a href="{{ $news->blog_link }}" class="text-white">Blog</a>
                 @if ($news->news_link !== null)
                     <span> | </span>
-                    <a href="{{ $news->news_link }}" class="text-white">nieuws site</a>
+                    <a href="{{ $news->news_link }}" class="text-white">Extra link</a>
                     @endif
                 </p>
                 <p class="text-white mb-1">Geupload op: {{ date('d-m-Y', strtotime($news->created_at)) }}</p>

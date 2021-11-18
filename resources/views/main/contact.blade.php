@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h3 class="text-primary">{{ $post->title }}@auth <a href="{{ route('post.edit', $post) }}"><i class="fas fa-pen-square ps-2"></i></a>@endauth</h3>
-        {!! App\Services\Text::nl2p($post->description) !!}
+        {!! App\Services\Text::nl2p(e($post->description)) !!}
         <hr class="text-primary">
         @include('components._messages')
         <form action="{{ route('send') }}" method="post">

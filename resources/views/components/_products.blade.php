@@ -22,7 +22,7 @@
         </form>
     </div>
 @endauth
-<div onclick="location.href='https://www.ravelry.com/patterns/library/{{ $url }}';" class="card bg-primary mb-3" title="https://www.ravelry.com/patterns/library/{{ $url }}">
+<a href="https://www.ravelry.com/patterns/library/{{ $url }}" class="card bg-primary text-decoration-none zoom mb-3">
     <div class="row products">
         <div class="col-3 col-sm-2 col-lg-1 align-self-center"><img src="{{ $product['square_thumbnail_url'] }}" alt=""></div>
         <div class="col-6 col-sm-8 col-lg-10 text-white align-self-center"><p>{{ $product['title'] }}</p></div>
@@ -34,7 +34,7 @@
             @endif
         </div>
     </div>
-</div>
+</a>
 @auth
 </div>
 @endauth

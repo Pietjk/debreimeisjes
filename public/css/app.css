@@ -10987,15 +10987,16 @@ nav .nav-link.active {
 .container .news img {
   width: 100%;
 }
-.container .products {
-  transition: 0.3s;
-}
 .container .products .price {
   border-left: solid 1px white;
 }
-.container .products:hover {
+.container .zoom {
+  transition: 0.2s;
   cursor: pointer;
-  filter: brightness(0.85);
+}
+.container .zoom:hover {
+  filter: brightness(0.9);
+  transform: scale(1.01);
 }
 
 footer {
