@@ -18,15 +18,15 @@ class Ravelry
 
     public static function getProducts($cached = false)
     {
-        if ($cached)
+        if ($cached && ! request()->has('refresh'))
         {
             $products = Cache::remember('products', 86400, function () {
                             return self::getProducts($cached = false)->toArray();
                         });
         } else {
             $allProducts = collect(self::apiGet('stores/82998/products.json')['products']);
-            $products = $allProducts->reject(function($allProducts, $key) {
-                return is_null($allProducts['square_thumbnail_url']);
+            $products = $allProducts->reject(function($product, $key) {
+                return is_null($product['square_thumbnail_url']);
             })->toArray();
             array_walk(
                 $products,
