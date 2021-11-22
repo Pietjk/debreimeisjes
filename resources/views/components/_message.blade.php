@@ -8,7 +8,7 @@
     <ul class="list-group">
         @foreach ($messages as $message)
             <li class="list-group-item list-group-item-{{ $type }} border-0">
-                {!! $icon !!}
+                {!! e($icon) !!}
                 {{ $message }}
             </li>
         @endforeach
