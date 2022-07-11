@@ -17,7 +17,7 @@ class MailController extends Controller
         ]);
         Mail::send('emails.contact', array(
             'body' => $validated['message'],
-            'footer' => 'JE KAN NIET REAGEREN OP DEZE EMAIL!!! Deze mail is verstuurd door ' . $validated['name'] . ' met het email adres ' . $validated['email'] . 'via' . ' www.debreimeisjes.nl.'
+            'footer' => 'JE KAN NIET REAGEREN OP DEZE EMAIL!!! Deze mail is verstuurd door ' . $validated['name'] . ' met het email adres ' . $validated['email'] . ' via' . ' www.debreimeisjes.nl.'
         ), function($message) use($validated) {
             $message->from($validated['email'], $validated['name']);
             $message->to('debreimeisjes@gmail.com', 'Akkelien')->subject($validated['subject']);
