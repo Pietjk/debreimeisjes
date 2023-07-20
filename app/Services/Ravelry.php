@@ -10,14 +10,30 @@ class Ravelry
 {
     protected static function apiGet($url)
     {
+        // $id = 1340628;
+        // $url =  "/patterns/{$id}.json";
+
         $username = config('services.ravelry.username');
         $key = config('services.ravelry.key');
         $url = "https://api.ravelry.com/".$url;
+        // dd(Http::withBasicAuth($username, $key)->get($url)->json());
         return Http::withBasicAuth($username, $key)->get($url)->json();
     }
 
     public static function getProducts($cached = false)
     {
+        $ids = array_filter(collect(self::apiGet('stores/82998/products.json')['products'])->map(function ($item) {
+            if (!is_null($item['square_thumbnail_url']) && !is_null($item['designer_photos_count'])) {
+                return str_replace('AS-', '', $item['sku']);
+            }
+        })->toArray());
+
+        $patterns = [];
+        foreach (array_chunk($ids, 10) as $key => $id_chunks) {
+            $patterns[] = self::apiGet('patterns.json?ids='.implode('+', $id_chunks));
+        }
+        dd($patterns);
+
         if ($cached && ! request()->has('refresh'))
         {
             $products = Cache::remember('products', 86400, function () {
