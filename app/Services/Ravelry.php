@@ -28,10 +28,8 @@ class Ravelry
             }
         })->toArray());
 
-        $patterns = [];
-        foreach (array_chunk($ids, 10) as $key => $id_chunks) {
-            $patterns[] = self::apiGet('patterns.json?ids='.implode('+', $id_chunks));
-        }
+        $patterns = self::apiGet('patterns.json?ids='.implode('+', $ids));
+
         dd($patterns);
 
         if ($cached && ! request()->has('refresh'))
