@@ -19,7 +19,7 @@ class Ravelry
 
     public static function getProducts($cached = false)
     {
-        if (request()->has('refresh')) {
+        if (request()->has('reset')) {
             Cache::forget('products');
         }
 
