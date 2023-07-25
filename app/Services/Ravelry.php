@@ -19,15 +19,15 @@ class Ravelry
 
     public static function getProducts($cached = false)
     {
-        if (request()->has('reset')) {
+        if (request()->has('refresh')) {
             Cache::forget('products');
         }
 
         if ($cached && ! request()->has('refresh'))
         {
-            $products = array_reverse(Cache::remember('products', 86400, function () {
+            $products = Cache::remember('products', 86400, function () {
                             return self::getProducts($cached = false)->toArray();
-                        })['patterns'], true);
+                        });
         } else {
             $ids = array_filter(collect(self::apiGet('stores/82998/products.json')['products'])->map(function ($item) {
                 if (!is_null($item['square_thumbnail_url']) && !is_null($item['designer_photos_count'])) {
