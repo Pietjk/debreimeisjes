@@ -41,7 +41,7 @@ class NewsController extends Controller
             'text' => ['required', 'string', 'min:3'],
             'blog_link' => ['required', 'url'],
             'news_link' => ['nullable', 'url'],
-            'image' => ['required', 'image', 'max:200'],
+            'image' => ['required', 'image', 'max:5000'],
         ]);
 
         unset($validated['image']);

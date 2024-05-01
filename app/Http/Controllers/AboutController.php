@@ -31,7 +31,7 @@ class AboutController extends Controller
         $validated = $request->validate([
             'title' => ['required', 'string', 'min:3'],
             'text' => ['required', 'string', 'min:3'],
-            'image' => ['nullable', 'image', 'max:200'],
+            'image' => ['nullable', 'image', 'max:5000'],
         ]);
 
         unset($validated['image']);
