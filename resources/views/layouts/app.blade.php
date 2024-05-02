@@ -51,7 +51,7 @@
                             <button class=" btn btn-primary ratio-1x1"><i class="fas fa-sync"></i></button>
                         </div>
                     @endif
-                    <div class="header-box" onclick="document.getElementById('header_upload').dispatchEvent(new MouseEvent('click', {bubbles: true}))">
+                    <div class="header-box" onclick="document.getElementById('header_upload').dispatchEvent(new MouseEvent('click'))">
                         <div class="mx-auto">
                             <input onchange="this.form.submit()" class="form-control file" type="file" name="header" id="header_upload">
                         </div>
