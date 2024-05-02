@@ -10,6 +10,7 @@ use App\Services\Ravelry;
 use App\Services\Text;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PagesController extends Controller
 {
@@ -60,5 +61,24 @@ class PagesController extends Controller
         $post = Post::where('locator', '=', 'mContact')->first();
 
         return view('main.contact', compact('post'));
+    }
+
+    public function update_header(Request $request)
+    {
+        $request->validate([
+            'header' => ['sometimes', 'image', 'mimes:jpg', 'max:5000'],
+        ]);
+
+        if ($request->has('header')) {
+            $request->file('header')->storeAs(
+                'images',
+                'header.jpg',
+                'public'
+            );
+        } elseif (Storage::disk('public')->fileExists('images/header.jpg')) {
+            Storage::disk('public')->delete('images/header.jpg');
+        }
+
+        return redirect()->back();
     }
 }

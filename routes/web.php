@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('post', App\Http\Controllers\PostController::class)->only('edit', 'update');
     Route::resource('news', App\Http\Controllers\NewsController::class)->except('index', 'show');
     Route::post('/product', [App\Http\Controllers\ProductController::class, 'feature'])->name('product.feature');
+    Route::post('/header', [App\Http\Controllers\PagesController::class, 'update_header'])->name('header.update');
     Route::resource('about', App\Http\Controllers\AboutController::class)->only('edit', 'update');
 });
 Auth::routes(['register' => false]);

@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Facades\Storage;
+@endphp
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -32,7 +36,30 @@
 </head>
 <body>
     <div id="app">
-        <div class="header-img"></div>
+        <div class="header-img" style="
+            @if(Storage::disk('public')->fileExists('images/header.jpg'))
+                background-image: url({{ Storage::disk('public')->url('images/header.jpg') }});
+            @else
+                background-image: url({{ asset('images/header.jpg') }});
+            @endif
+        ">
+            @auth
+                <form action="{{ route('header.update') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @if(Storage::disk('public')->fileExists('images/header.jpg'))
+                        <div class="reset-header-box">
+                            <button class=" btn btn-primary ratio-1x1"><i class="fas fa-sync"></i></button>
+                        </div>
+                    @endif
+                    <div class="header-box" onclick="document.getElementById('header_upload').dispatchEvent(new MouseEvent('click', {bubbles: true}))">
+                        <div class="mx-auto">
+                            <input onchange="this.form.submit()" class="form-control file" type="file" name="header" id="header_upload">
+                        </div>
+                    </div>
+                </form>
+            @endauth
+        </div>
+
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('main.home') }}">

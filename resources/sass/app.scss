@@ -27,7 +27,7 @@
   }
   */
   [class^="icon-"]:before, [class*=" icon-"]:before {
-    font-family: "fontello";
+      font-family: "fontello", serif;
     font-style: normal;
     font-weight: normal;
     speak: never;
@@ -77,12 +77,35 @@ p {
     font-size: 0.95rem;
 }
 
+.reset-header-box {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
 .header-img {
     height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("/images/header.jpg");
+
+    form {
+        height: inherit;
+    }
+
+    .header-box {
+        background: rgba(255, 255, 255, 0);
+        height: inherit;
+        transition: all 0.5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .header-box:hover {
+        background: rgba(255, 255, 255, 0.75);
+    }
 }
 
 // Navbar
